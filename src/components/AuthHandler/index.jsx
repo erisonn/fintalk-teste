@@ -2,7 +2,6 @@ import { Navigate, useLocation } from "react-router-dom";
 
 const AuthHandler = ({ children }) => {
   const location = useLocation();
-  console.log(location);
   const isLoggedIn = false;
 
   const invalidPathnames = ["/login", "/sign-up"];
