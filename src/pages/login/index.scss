@@ -1,0 +1,17 @@
+.Login-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+
+  .Left-container {
+    width: 50%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .Right-container {
+    flex: 1;
+    background-color: #211C6A;
+  }
+}
