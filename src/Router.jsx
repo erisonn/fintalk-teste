@@ -4,6 +4,7 @@ import SignUp from "./pages/SignUp";
 const Router = () => {
   return (
     <Routes>
+      <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
     </Routes>
