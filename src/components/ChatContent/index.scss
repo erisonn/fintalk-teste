@@ -1,12 +1,17 @@
 .ChatContent {
-    background-color: white;
-    border-radius: 8px;
-    height: 87%;
-    margin-right: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    h1 {
-        text-align: center;
-    }
+  background-color: white;
+  border-radius: 8px;
+  height: 87%;
+  margin-right: 50px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+  h1 {
+    // text-align: center;
+    padding-left: 20px;
+  }
+
+  .ChatContent-messages {
+    padding: 20px;
+  }
 }
