@@ -23,13 +23,18 @@ const ChatContent = ({ id }) => {
   return (
     <div className="ChatContent">
       <h1>{currentChat.title}</h1>
-      <div className="ChatContent-messages">
-        {currentChat.messages.map((message) => (
-          <p key={message.date}>
-            {dayjs.unix(message.date).format("hh:mm")} <b>{message.user}</b>:{" "}
-            {message.message}
-          </p>
-        ))}
+      <div className="ChatContent-messages-wrapper">
+        <div className="ChatContent-messages">
+          {currentChat.messages.map((message) => (
+            <p key={message.date}>
+              {dayjs.unix(message.date).format("hh:mm")} <b>{message.user}</b>:{" "}
+              {message.message}
+            </p>
+          ))}
+        </div>
+        <form className="NewMessage-form">
+          <input type="text" name="new message" placeholder="Aa" />
+        </form>
       </div>
     </div>
   );

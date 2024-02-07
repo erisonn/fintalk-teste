@@ -3,15 +3,27 @@
   border-radius: 8px;
   height: 87%;
   margin-right: 50px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
+  position: relative;
   h1 {
-    // text-align: center;
     padding-left: 20px;
   }
 
+  .ChatContent-messages-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .ChatContent-messages {
     padding: 20px;
+  }
+  .NewMessage-form {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    input[type="text"] {
+      width: 80%;
+      height: 35px;
+      margin-left: 20px;
+    }
   }
 }
