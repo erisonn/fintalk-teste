@@ -6,7 +6,7 @@ const SignUp = () => {
   const [isAccountCreateSuccessful, setIsAccountCreateSuccessful] =
     useState(null);
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     const user = event.target[0].value;
@@ -20,9 +20,10 @@ const SignUp = () => {
   useEffect(() => {
     if (isAccountCreateSuccessful) {
       setTimeout(() => {
-        navigate('login')
+        navigate("login");
       }, 2000);
     }
+    // CLEAR TIMEOUT!!!!
   }, [isAccountCreateSuccessful]);
 
   if (isAccountCreateSuccessful) {
