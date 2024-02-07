@@ -6,32 +6,32 @@ export const chatMock = [
       {
         message: "Hello everyone!",
         user: "John",
-        date: 1642723200,
+        date: 1707335091,
       },
       {
         message: "Hey John, how are you?",
         user: "Sarah",
-        date: 1642809600,
+        date: 164280964300,
       },
       {
         message: "I'm good, thanks! How about you?",
         user: "John",
-        date: 1642896000,
+        date: 164289436000,
       },
       {
         message: "I'm doing great. Any plans for the weekend?",
         user: "Sarah",
-        date: 1642982400,
+        date: 16429842400,
       },
       {
         message: "Not sure yet. Maybe catch a movie.",
         user: "John",
-        date: 1643068800,
+        date: 164306854800,
       },
       {
         message: "Sounds good! Let me know.",
         user: "Sarah",
-        date: 1643155200,
+        date: 16434155200,
       },
     ],
   },
