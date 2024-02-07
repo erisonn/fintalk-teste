@@ -27,9 +27,16 @@
     height: 90%;
   }
   .ChatList-item {
-    padding: 20px 50px 0 0;
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 10px 50px 10px 10px;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(127, 255, 212, 0.247);
+      border-radius: 8px;
+    }
     .ChatList-item-logo {
       display: flex;
       align-items: center;
