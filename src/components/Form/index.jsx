@@ -7,14 +7,14 @@ const Form = ({ handleSubmit, isSignUp, buttonText, warningText }) => {
       <form onSubmit={handleSubmit} className="Form-content">
         <div>
           <h3>Username</h3>
-          <input type="text" required pattern="^[0-9A-Za-z]{6,16}$" />
+          <input type="text" name="username" required pattern="^[0-9A-Za-z]{6,16}$" />
           <p className="Form-reasoning">
             Must be between 6 and 16 alphanumeric characters
           </p>
         </div>
         <div>
           <h3>Password</h3>
-          <input type="password" required pattern="^[0-9A-Za-z]{8,32}$" />
+          <input type="password" name="password" required pattern="^[0-9A-Za-z]{8,32}$" />
           <p className="Form-reasoning">
             Must be between 8 and 32 alphanumeric characters
           </p>
