@@ -2,12 +2,18 @@ import ChatLogo from "../../../assets/chat-icon.svg?react";
 import "./index.scss";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import classNames from "classnames";
 
 dayjs.extend(relativeTime);
-const ChatListItem = ({ handleClick, chatData = {}, lastMessage }) => {
+const ChatListItem = ({
+  handleClick,
+  chatData = {},
+  lastMessage,
+  isSelected,
+}) => {
   return (
     <div
-      className="ChatList-item"
+      className={classNames("ChatList-item", { selected: isSelected })}
       key={chatData.id}
       onClick={() => handleClick(chatData.id)}
     >
