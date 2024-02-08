@@ -3,10 +3,14 @@ import { chatMock } from "../../mock";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Navigate } from "react-router-dom";
+import { getLoggedUser } from "../../helpers/getLoggedUser";
 
 dayjs.extend(relativeTime);
 const ChatContent = ({ id }) => {
-  const currentChat = chatMock.find((chat) => String(chat.id) === String(id));
+  const loggedUser = getLoggedUser();
+  const currentChat = [...loggedUser.chats, ...chatMock].find(
+    (chat) => String(chat.id) === String(id)
+  );
 
   if (!id) {
     return (
@@ -27,8 +31,8 @@ const ChatContent = ({ id }) => {
         <div className="ChatContent-messages">
           {currentChat.messages.map((message) => (
             <p key={message?.date}>
-              {dayjs.unix(message?.date).format("hh:mm")} <b>{message?.user}</b>:{" "}
-              {message?.message}
+              {dayjs.unix(message?.date).format("hh:mm")} <b>{message?.user}</b>
+              : {message?.message}
             </p>
           ))}
         </div>
