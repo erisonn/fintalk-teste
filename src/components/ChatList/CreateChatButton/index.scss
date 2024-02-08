@@ -1,11 +1,20 @@
 @use "../../../global.scss";
 
-.CreateChatButton {
-  height: 35px;
-  width: 200px;
-  border-radius: 4px;
-  border: none;
-  background-color: global.$color-primary;
-  color: white;
-  cursor: pointer;
+.CreateChatButton-wrapper {
+  position: relative;
+  .CreateChatButton-popOver {
+    z-index: 999;
+    position: absolute;
+    right: 90%;
+    top: 40px;
+    width: 300px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    border-radius: 4px;
+    background-color: white;
+  }
 }
