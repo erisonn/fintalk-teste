@@ -1,0 +1,9 @@
+@use "../../global.scss";
+
+.ButtonComponent {
+  border-radius: 4px;
+  border: none;
+  background-color: global.$color-primary;
+  color: white;
+  cursor: pointer;
+}
