@@ -5,6 +5,7 @@ import ChatListItem from "./ChatListItem";
 import CreateChatButton from "./CreateChatButton";
 import { getLoggedUser } from "../../helpers/getLoggedUser";
 import { useState } from "react";
+import Button from "../Button";
 
 const ChatList = () => {
   const user = getLoggedUser();
@@ -22,10 +23,16 @@ const ChatList = () => {
     setChatsData([newChatData, ...mergedChats]);
   };
 
+  const handleLogOut = () => {
+    window.localStorage.removeItem("finChatLoggedUser");
+    navigate("/login");
+  };
+
   return (
     <div className="ChatList">
       <div className="ChatList-header">
-        <h2>Your chats</h2>
+        <h2>Your chats: {user.user}</h2>
+        <Button buttonText={'Log out'} onClick={handleLogOut} buttonHeight={25} buttonWidth={100} backgroundColor={"#ff4545"}/>
         <CreateChatButton setChatData={handleSetChatsData}/>
       </div>
       <div className="ChatList-items-container">

@@ -2,10 +2,9 @@ import { useState } from "react";
 import "./index.scss";
 import Button from "../../Button";
 import { createLocalStorageChat } from "../../../helpers/createLocalStorageChat";
-import { useNavigate } from "react-router-dom";
 
 const CreateChatButton = ({ setChatData }) => {
-  const navigate = useNavigate();
+ 
   const [shouldRenderPopOver, setShouldRenderPopOver] = useState(false);
 
   const togglePopOver = () => {
@@ -16,11 +15,6 @@ const CreateChatButton = ({ setChatData }) => {
     event.preventDefault();
     createLocalStorageChat(event.target[0].value, setChatData);
     setShouldRenderPopOver(false);
-  };
-
-  const handleLogOut = () => {
-    window.localStorage.removeItem("finChatLoggedUser");
-    navigate("/login");
   };
 
   return (
@@ -40,7 +34,6 @@ const CreateChatButton = ({ setChatData }) => {
         buttonWidth={200}
         buttonHeight={35}
       />
-      <button onClick={handleLogOut}>Log out</button>
     </div>
   );
 };
