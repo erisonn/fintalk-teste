@@ -21,10 +21,14 @@ const ChatListItem = ({
       </div>
       <div className="ChatList-item-content">
         <h4>{chatData.title}</h4>
-        <p>
-          {dayjs.unix(lastMessage.date).format("hh:mm")}{" "}
-          <b>{lastMessage.user}</b>: {lastMessage.message}
-        </p>
+        {lastMessage ? (
+          <p>
+            {dayjs.unix(lastMessage?.date).format("hh:mm")}{" "}
+            <b>{lastMessage?.user}</b>: {lastMessage?.message}
+          </p>
+        ) : (
+          <p>No messages yet</p>
+        )}
       </div>
     </div>
   );
