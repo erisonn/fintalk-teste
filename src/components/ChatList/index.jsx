@@ -1,7 +1,7 @@
 import { chatMock } from "../../mock";
 import "./index.scss";
-import ChatLogo from "../../assets/chat-icon.svg?react";
 import { useNavigate } from "react-router-dom";
+import ChatListItem from "./ChatListItem";
 
 const ChatList = () => {
   const navigate = useNavigate();
@@ -19,21 +19,11 @@ const ChatList = () => {
         {chatMock.map((chat) => {
           const lastMessage = chat.messages[chat.messages.length - 1];
           return (
-            <div
-              className="ChatList-item"
-              key={chat.id}
-              onClick={() => handleClick(chat.id)}
-            >
-              <div className="ChatList-item-logo">
-                <ChatLogo />
-              </div>
-              <div className="ChatList-item-content">
-                <h4>{chat.title}</h4>
-                <p>
-                  {lastMessage.user}: {lastMessage.message}
-                </p>
-              </div>
-            </div>
+            <ChatListItem
+              handleClick={handleClick}
+              chatData={chat}
+              lastMessage={lastMessage}
+            />
           );
         })}
       </div>

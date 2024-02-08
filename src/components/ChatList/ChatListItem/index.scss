@@ -1,0 +1,37 @@
+.ChatList-item {
+    margin-top: 10px;
+    margin-right: 20px;
+    padding: 10px 50px 10px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(127, 255, 212, 0.247);
+      border-radius: 8px;
+    }
+    .ChatList-item-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(127, 255, 212, 0.247);
+      border: 1px solid rgb(207, 207, 207);
+      border-radius: 50%;
+      height: 84px;
+      width: 84px;
+      margin-right: 20px;
+      min-width: 84px;
+      svg {
+        width: 64px;
+        height: 64px;
+      }
+    }
+    .ChatList-item-content {
+      overflow: hidden;
+      p,
+      h4 {
+        white-space: nowrap;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
