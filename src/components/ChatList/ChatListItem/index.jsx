@@ -14,7 +14,6 @@ const ChatListItem = ({
   return (
     <div
       className={classNames("ChatList-item", { selected: isSelected })}
-      key={chatData.id}
       onClick={() => handleClick(chatData.id)}
     >
       <div className="ChatList-item-logo">

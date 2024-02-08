@@ -22,6 +22,7 @@ const ChatList = () => {
           const isSelected = String(idFromUrl) === String(chat.id);
           return (
             <ChatListItem
+              key={chat.id}
               isSelected={isSelected}
               handleClick={handleClick}
               chatData={chat}
