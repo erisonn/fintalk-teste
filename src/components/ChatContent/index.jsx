@@ -37,7 +37,7 @@ const ChatContent = ({ id }) => {
           ))}
         </div>
         <form className="NewMessage-form">
-          <input type="text" name="new message" placeholder="Aa" />
+          <input type="text" name="new message" placeholder="Message..." />
         </form>
       </div>
     </div>
