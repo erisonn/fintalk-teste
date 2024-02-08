@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CreateLocalStorageAccount } from "../../helpers/createLocalStorageAccount";
+import { createLocalStorageAccount } from "../../helpers/createLocalStorageAccount";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import Form from "../../components/Form";
@@ -18,7 +18,7 @@ const SignUp = () => {
 
     event.preventDefault();
 
-    CreateLocalStorageAccount(user, password, setIsAccountCreateSuccessful);
+    createLocalStorageAccount(user, password, setIsAccountCreateSuccessful);
   };
 
   useEffect(() => {

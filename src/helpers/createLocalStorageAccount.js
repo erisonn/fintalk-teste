@@ -1,4 +1,4 @@
-export const CreateLocalStorageAccount = (user, password, setState) => {
+export const createLocalStorageAccount = (user, password, setState) => {
   const existingAccounts = window.localStorage.getItem("finChatAccounts");
   const parsedExistingAccounts = JSON.parse(existingAccounts) ?? [];
   const userNameAlreadyExists = parsedExistingAccounts.find(
