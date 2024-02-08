@@ -1,6 +1,11 @@
 import "./index.scss";
 
-const Button = ({ buttonText, onClick, buttonHeight, buttonWidth }) => {
+const Button = ({
+  buttonText,
+  onClick = () => {},
+  buttonHeight,
+  buttonWidth,
+}) => {
   return (
     <button
       style={{ width: buttonWidth, height: buttonHeight }}
