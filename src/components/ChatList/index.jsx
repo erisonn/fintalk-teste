@@ -2,6 +2,7 @@ import { chatMock } from "../../mock";
 import "./index.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import ChatListItem from "./ChatListItem";
+import CreateChatButton from "./CreateChatButton";
 
 const ChatList = () => {
   const { id: idFromUrl } = useParams();
@@ -14,7 +15,7 @@ const ChatList = () => {
     <div className="ChatList">
       <div className="ChatList-header">
         <h2>Your chats</h2>
-        <button>Create chat</button>
+        <CreateChatButton/>
       </div>
       <div className="ChatList-items-container">
         {chatMock.map((chat) => {

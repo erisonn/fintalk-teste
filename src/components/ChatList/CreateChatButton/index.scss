@@ -1,0 +1,11 @@
+@use "../../../global.scss";
+
+.CreateChatButton {
+  height: 35px;
+  width: 200px;
+  border-radius: 4px;
+  border: none;
+  background-color: global.$color-primary;
+  color: white;
+  cursor: pointer;
+}
