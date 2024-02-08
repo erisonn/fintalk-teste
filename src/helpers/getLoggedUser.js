@@ -4,10 +4,8 @@ export const getLoggedUser = () => {
   return parsedLoggedUser;
 };
 
-export const logUser = (user, password) => {
-  const userData = {
-    user,
-    password,
-  };
-  window.localStorage.setItem("finChatLoggedUser", JSON.stringify(userData));
+export const getAllUsers = () => {
+  const allUsers = window.localStorage.getItem("finChatAccounts");
+  const parsedAllUsers = JSON.parse(allUsers) ?? {};
+  return parsedAllUsers;
 };

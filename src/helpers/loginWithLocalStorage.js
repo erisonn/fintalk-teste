@@ -1,5 +1,3 @@
-import { logUser } from "./getLoggedUser";
-
 export const loginWithLocalStorage = (user, password, setState) => {
   const existingAccounts = window.localStorage.getItem("finChatAccounts");
   const parsedExistingAccounts = JSON.parse(existingAccounts) ?? [];
@@ -12,7 +10,10 @@ export const loginWithLocalStorage = (user, password, setState) => {
     user === existingUser?.user && password === existingUser?.password;
 
   if (isLoginValid) {
-    logUser(user, password);
+    window.localStorage.setItem(
+      "finChatLoggedUser",
+      JSON.stringify(existingUser)
+    );
     return setState(true);
   }
   return setState(false);

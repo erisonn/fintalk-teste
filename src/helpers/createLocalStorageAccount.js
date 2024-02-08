@@ -6,8 +6,10 @@ export const createLocalStorageAccount = (user, password, setState) => {
   );
 
   const accountData = {
+    id: crypto.randomUUID(),
     user,
     password,
+    chats: [],
   };
 
   if (!userNameAlreadyExists || !parsedExistingAccounts.length) {
