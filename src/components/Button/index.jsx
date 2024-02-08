@@ -5,10 +5,11 @@ const Button = ({
   onClick = () => {},
   buttonHeight,
   buttonWidth,
+  backgroundColor
 }) => {
   return (
     <button
-      style={{ width: buttonWidth, height: buttonHeight }}
+      style={{ width: buttonWidth, height: buttonHeight, backgroundColor: backgroundColor }}
       className="ButtonComponent"
       onClick={onClick}
     >
