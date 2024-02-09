@@ -27,7 +27,7 @@ const LoginForm = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [isLoginValid]);
+  }, [isLoginValid, navigate]);
 
   if (isLoginValid) {
     return <h3>Logged in successfully!</h3>;

@@ -20,7 +20,7 @@ const SignUp = () => {
 
     createLocalStorageAccount(user, password, setIsAccountCreateSuccessful);
   };
-
+  
   useEffect(() => {
     const timer = () => {
       setTimeout(() => {
@@ -33,7 +33,7 @@ const SignUp = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [isAccountCreateSuccessful]);
+  }, [isAccountCreateSuccessful, navigate]);
 
   if (isAccountCreateSuccessful) {
     return (

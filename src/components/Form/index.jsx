@@ -40,7 +40,7 @@ const Form = ({ handleSubmit, isSignUp, buttonText, warningText }) => {
             </p>
           ) : (
             <p>
-              Don't have a account yet?{" "}
+              {`Don't have a account yet?`}{" "}
               <Link className="Signup-link" to="/sign-up">
                 Sign up
               </Link>
