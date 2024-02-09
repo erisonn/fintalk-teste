@@ -15,13 +15,18 @@ const LoginForm = () => {
   };
 
   useEffect(() => {
-    if (isLoginValid) {
+    const timer = () => {
       setTimeout(() => {
         navigate("/messages");
       }, 2000);
+    };
+    if (isLoginValid) {
+      timer();
     }
 
-    // CLEAR TIMEOUT!!!!
+    return () => {
+      clearTimeout(timer);
+    };
   }, [isLoginValid]);
 
   if (isLoginValid) {

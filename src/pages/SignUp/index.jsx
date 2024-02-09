@@ -22,12 +22,17 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    if (isAccountCreateSuccessful) {
+    const timer = () => {
       setTimeout(() => {
         navigate("login");
       }, 2000);
+    };
+    if (isAccountCreateSuccessful) {
+      timer();
     }
-    // CLEAR TIMEOUT!!!!
+    return () => {
+      clearTimeout(timer);
+    };
   }, [isAccountCreateSuccessful]);
 
   if (isAccountCreateSuccessful) {
