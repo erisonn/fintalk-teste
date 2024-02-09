@@ -19,9 +19,14 @@ const ChatList = () => {
     navigate(`/messages/${id}`);
   };
 
-  const handleSetChatsData = (newChatData) => {
+  const handleSetChatsData = (newChatData, isDelete) => {
+    if (isDelete) {
+      return setChatsData([...newChatData, ...chatMock]);
+    }
     setChatsData([newChatData, ...mergedChats]);
   };
+
+  console.log(chatsData);
 
   const handleLogOut = () => {
     window.localStorage.removeItem("finChatLoggedUser");
@@ -32,18 +37,26 @@ const ChatList = () => {
     <div className="ChatList">
       <div className="ChatList-header">
         <h2>Your chats: {user.user}</h2>
-        <Button buttonText={'Log out'} onClick={handleLogOut} buttonHeight={25} buttonWidth={100} backgroundColor={"#ff4545"}/>
-        <CreateChatButton setChatData={handleSetChatsData}/>
+        <Button
+          buttonText={"Log out"}
+          onClick={handleLogOut}
+          buttonHeight={25}
+          buttonWidth={100}
+          backgroundColor={"#ff4545"}
+        />
+        <CreateChatButton setChatData={handleSetChatsData} />
       </div>
       <div className="ChatList-items-container">
         {chatsData.map((chat) => {
-          const lastMessage = chat.messages[chat.messages.length - 1];
+          const lastMessage = chat?.messages?.[chat.messages?.length - 1];
           const isSelected = String(idFromUrl) === String(chat.id);
           return (
             <ChatListItem
+              isCreatedByUser={chat.isCreatedByUser}
               key={chat.id}
               isSelected={isSelected}
               handleClick={handleClick}
+              handleSetChatsData={handleSetChatsData}
               chatData={chat}
               lastMessage={lastMessage}
             />

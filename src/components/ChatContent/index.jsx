@@ -16,8 +16,7 @@ const ChatContent = ({ id }) => {
     return (
       <div className="ChatContent">
         <div className="ChatContent-empty">
-
-        <h1>No chat selected</h1>
+          <h1>No chat selected</h1>
         </div>
       </div>
     );

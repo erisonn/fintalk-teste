@@ -1,6 +1,6 @@
 import { getAllUsers, getLoggedUser } from "./getLoggedUser";
 
-export const createLocalStorageChat = (chatName, setChatData) => {
+export const deleteLocalStorageChat = (id, handleSetChatsData) => {
   const allUsers = getAllUsers();
 
   const loggedUser = getLoggedUser();
@@ -8,24 +8,21 @@ export const createLocalStorageChat = (chatName, setChatData) => {
     (user) => user.id === loggedUser.id
   );
 
-  const newChatData = {
-    id: crypto.randomUUID(),
-    title: chatName,
-    messages: [],
-    isCreatedByUser: true,
+  const newChatData = loggedUserWithChatData.chats.filter(
+    (chat) => chat.id !== id
+  );
+
+  const newUserData = {
+    ...loggedUser,
+    chats: newChatData,
   };
 
   Object.assign(loggedUserWithChatData, {
     ...loggedUserWithChatData,
-    chats: [newChatData, ...loggedUserWithChatData.chats],
+    chats: newUserData.chats,
   });
-
-  const newUserData = {
-    ...loggedUser,
-    chats: [newChatData, ...loggedUser.chats],
-  };
 
   window.localStorage.setItem("finChatAccounts", JSON.stringify(allUsers));
   window.localStorage.setItem("finChatLoggedUser", JSON.stringify(newUserData));
-  setChatData(newChatData);
+  handleSetChatsData(newChatData, true);
 };

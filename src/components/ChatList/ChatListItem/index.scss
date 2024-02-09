@@ -10,6 +10,7 @@
     border-radius: 8px;
   }
   .ChatList-item-logo {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,6 +25,19 @@
       width: 64px;
       height: 64px;
     }
+    .ChatList-item-delete-button {
+      position: absolute;
+      top: 55px;
+      left: 45px;
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
   }
   .ChatList-item-content {
     overflow: hidden;
@@ -34,6 +48,7 @@
       text-overflow: ellipsis;
     }
   }
+  
 }
 .selected {
   background-color: rgba(127, 255, 212, 0.247);
