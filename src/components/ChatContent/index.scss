@@ -15,6 +15,9 @@
   }
   .ChatContent-messages {
     padding: 20px;
+    height: 550px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
   }
   .NewMessage-form {
     position: absolute;
