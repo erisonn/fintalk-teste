@@ -22,5 +22,8 @@
       color: white;
       font-size: 60px;
     }
+    @media only screen and (max-width: 700px) {
+      display: none;
+    }
   }
 }
