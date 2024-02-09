@@ -10,14 +10,13 @@ const Messages = () => {
   const user = getLoggedUser();
   const chats = user.chats;
   const [chatsData, setChatsData] = useState(chats);
-  const listRef = useRef(null)
+  const listRef = useRef(null);
 
   useEffect(() => {
     window.addEventListener("storage", () => {
       setChatsData(getLoggedUser().chats);
-      listRef.current?.lastElementChild?.scrollIntoView()
     });
-
+    listRef.current?.lastElementChild?.scrollIntoView();
     // return () => {
     //   window.removeEventListener("chatUpdate");
     // };
@@ -26,7 +25,7 @@ const Messages = () => {
   return (
     <div className="Messages-page">
       <ChatList user={user} chatsData={chatsData} setChatsData={setChatsData} />
-      <ChatContent id={id} chatsData={chatsData} listRef={listRef}/>
+      <ChatContent id={id} chatsData={chatsData} listRef={listRef} />
     </div>
   );
 };
