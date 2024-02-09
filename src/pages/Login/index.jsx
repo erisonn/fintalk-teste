@@ -16,7 +16,7 @@ const Login = () => {
         <h1>Fin-Chat</h1>
         <LoginForm />
       </div>
-      <div className="Right-container"></div>
+      <div className="Right-container"><h1>Fin-Chat</h1></div>
     </div>
   );
 };
