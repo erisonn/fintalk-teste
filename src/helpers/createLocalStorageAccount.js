@@ -1,3 +1,5 @@
+import { chatMock } from "../mock";
+
 export const createLocalStorageAccount = (user, password, setState) => {
   const existingAccounts = window.localStorage.getItem("finChatAccounts");
   const parsedExistingAccounts = JSON.parse(existingAccounts) ?? [];
@@ -9,7 +11,7 @@ export const createLocalStorageAccount = (user, password, setState) => {
     id: crypto.randomUUID(),
     user,
     password,
-    chats: [],
+    chats: chatMock,
   };
 
   if (!userNameAlreadyExists || !parsedExistingAccounts.length) {
