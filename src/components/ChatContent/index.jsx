@@ -1,16 +1,22 @@
 import "./index.scss";
-import { chatMock } from "../../mock";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Navigate } from "react-router-dom";
-import { getLoggedUser } from "../../helpers/getLoggedUser";
+import { createLocalStorageMessage } from "../../helpers/createLocalStorageMessage";
+import { useRef } from "react";
 
 dayjs.extend(relativeTime);
-const ChatContent = ({ id }) => {
-  const loggedUser = getLoggedUser();
-  const currentChat = [...loggedUser.chats, ...chatMock].find(
+const ChatContent = ({ id, chatsData }) => {
+  const currentChat = chatsData.find(
     (chat) => String(chat.id) === String(id)
   );
+  const messageRef = useRef(null);
+
+  const handleSendMessage = (e, chatId) => {
+    e.preventDefault();
+    createLocalStorageMessage(e.target[0].value, chatId);
+    messageRef.current.value = "";
+  };
 
   if (!id) {
     return (
@@ -31,15 +37,23 @@ const ChatContent = ({ id }) => {
       <h1>{currentChat.title}</h1>
       <div className="ChatContent-messages-wrapper">
         <div className="ChatContent-messages">
-          {currentChat.messages.map((message) => (
-            <p key={message?.date}>
+          {currentChat?.messages?.map((message) => (
+            <p key={message?.id}>
               {dayjs.unix(message?.date).format("hh:mm")} <b>{message?.user}</b>
               : {message?.message}
             </p>
           ))}
         </div>
-        <form className="NewMessage-form">
-          <input type="text" name="new message" placeholder="Message..." />
+        <form
+          className="NewMessage-form"
+          onSubmit={(e) => handleSendMessage(e, currentChat.id)}
+        >
+          <input
+            ref={messageRef}
+            type="text"
+            name="new message"
+            placeholder="Message..."
+          />
         </form>
       </div>
     </div>

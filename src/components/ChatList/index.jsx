@@ -1,19 +1,13 @@
-import { chatMock } from "../../mock";
 import "./index.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import ChatListItem from "./ChatListItem";
 import CreateChatButton from "./CreateChatButton";
-import { getLoggedUser } from "../../helpers/getLoggedUser";
-import { useState } from "react";
 import Button from "../Button";
 
-const ChatList = () => {
-  const user = getLoggedUser();
-  const mergedChats = [...user.chats, ...chatMock];
+const ChatList = ({ user, chatsData, setChatsData }) => {
+  const chats = user.chats;
   const { id: idFromUrl } = useParams();
   const navigate = useNavigate();
-
-  const [chatsData, setChatsData] = useState(mergedChats);
 
   const handleClick = (id) => {
     navigate(`/messages/${id}`);
@@ -21,12 +15,10 @@ const ChatList = () => {
 
   const handleSetChatsData = (newChatData, isDelete) => {
     if (isDelete) {
-      return setChatsData([...newChatData, ...chatMock]);
+      return setChatsData(newChatData);
     }
-    setChatsData([newChatData, ...mergedChats]);
+    setChatsData([newChatData, ...chats]);
   };
-
-  console.log(chatsData);
 
   const handleLogOut = () => {
     window.localStorage.removeItem("finChatLoggedUser");
