@@ -10,6 +10,12 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 20px;
+    h2 {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 220px;
+      white-space: nowrap;
+    }
   }
   .ChatList-items-container {
     overflow-y: auto;
