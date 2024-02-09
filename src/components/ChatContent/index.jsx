@@ -6,7 +6,7 @@ import { createLocalStorageMessage } from "../../helpers/createLocalStorageMessa
 import { useRef } from "react";
 
 dayjs.extend(relativeTime);
-const ChatContent = ({ id, chatsData }) => {
+const ChatContent = ({ id, chatsData, listRef }) => {
   const currentChat = chatsData.find(
     (chat) => String(chat.id) === String(id)
   );
@@ -36,7 +36,7 @@ const ChatContent = ({ id, chatsData }) => {
     <div className="ChatContent">
       <h1>{currentChat.title}</h1>
       <div className="ChatContent-messages-wrapper">
-        <div className="ChatContent-messages">
+        <div className="ChatContent-messages" ref={listRef}>
           {currentChat?.messages?.map((message) => (
             <p key={message?.id}>
               {dayjs.unix(message?.date).format("hh:mm")} <b>{message?.user}</b>
