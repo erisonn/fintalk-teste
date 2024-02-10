@@ -1,10 +1,10 @@
 .ChatContent {
   background-color: white;
   border-radius: 8px;
-  height: 87%;
   margin-right: 50px;
   position: relative;
-  max-width: 1000px;
+  max-width: 50%;
+  height: 87vh;
   h1 {
     max-width: 90%;
     overflow: hidden;
@@ -17,10 +17,11 @@
     flex-direction: column;
     justify-content: space-between;
     overflow-wrap: break-word;
+    height: 85vh;
   }
   .ChatContent-messages {
     padding: 20px;
-    height: 550px;
+    height: 60vh;
     overflow-y: auto;
   }
   .NewMessage-form {

@@ -31,7 +31,7 @@ const CreateChatButton = ({ setChatData }) => {
       <Button
         onClick={togglePopOver}
         buttonText={"Create chat"}
-        buttonWidth={200}
+        buttonWidth={120}
         buttonHeight={35}
       />
     </div>
