@@ -18,7 +18,9 @@
     flex-direction: column;
     justify-content: space-between;
     overflow-wrap: break-word;
-    height: 85vh;
+    @media only screen and (max-width: 1023px) {
+      height: 85vh;
+    }
   }
   .ChatContent-messages {
     padding: 20px;
