@@ -7,9 +7,7 @@ import { useRef } from "react";
 
 dayjs.extend(relativeTime);
 const ChatContent = ({ id, chatsData, listRef }) => {
-  const currentChat = chatsData.find(
-    (chat) => String(chat.id) === String(id)
-  );
+  const currentChat = chatsData.find((chat) => String(chat.id) === String(id));
   const messageRef = useRef(null);
 
   const handleSendMessage = (e, chatId) => {
@@ -35,6 +33,7 @@ const ChatContent = ({ id, chatsData, listRef }) => {
   return (
     <div className="ChatContent">
       <h1>{currentChat.title}</h1>
+      {currentChat.description && <h4>{currentChat.description}</h4>}
       <div className="ChatContent-messages-wrapper">
         <div className="ChatContent-messages" ref={listRef}>
           {currentChat?.messages?.map((message) => (

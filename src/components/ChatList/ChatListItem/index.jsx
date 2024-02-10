@@ -41,6 +41,7 @@ const ChatListItem = ({
       </div>
       <div className="ChatList-item-content">
         <h4>{chatData.title}</h4>
+        {chatData?.description && <p>{chatData?.description}</p>}
         {lastMessage ? (
           <p>
             {dayjs.unix(lastMessage?.date).format("hh:mm")}{" "}

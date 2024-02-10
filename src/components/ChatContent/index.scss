@@ -5,7 +5,8 @@
   position: relative;
   max-width: 50%;
   height: 87vh;
-  h1 {
+  h1, h4 {
+    white-space: nowrap;
     max-width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;

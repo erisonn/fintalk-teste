@@ -1,6 +1,10 @@
 import { getAllUsers, getLoggedUser } from "./getLoggedUser";
 
-export const createLocalStorageChat = (chatName, setChatData) => {
+export const createLocalStorageChat = (
+  chatName,
+  chatDescription,
+  setChatData
+) => {
   const allUsers = getAllUsers();
 
   const loggedUser = getLoggedUser();
@@ -11,6 +15,7 @@ export const createLocalStorageChat = (chatName, setChatData) => {
   const newChatData = {
     id: crypto.randomUUID(),
     title: chatName,
+    description: chatDescription,
     messages: [],
     isCreatedByUser: true,
   };

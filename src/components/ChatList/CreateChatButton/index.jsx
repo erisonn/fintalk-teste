@@ -4,7 +4,6 @@ import Button from "../../Button";
 import { createLocalStorageChat } from "../../../helpers/createLocalStorageChat";
 
 const CreateChatButton = ({ setChatData }) => {
- 
   const [shouldRenderPopOver, setShouldRenderPopOver] = useState(false);
 
   const togglePopOver = () => {
@@ -13,7 +12,11 @@ const CreateChatButton = ({ setChatData }) => {
 
   const handleCreateChat = (event) => {
     event.preventDefault();
-    createLocalStorageChat(event.target[0].value, setChatData);
+    createLocalStorageChat(
+      event.target[0].value,
+      event.target[1].value,
+      setChatData
+    );
     setShouldRenderPopOver(false);
   };
 
@@ -21,9 +24,11 @@ const CreateChatButton = ({ setChatData }) => {
     <div className="CreateChatButton-wrapper">
       {shouldRenderPopOver && (
         <div className="CreateChatButton-popOver">
-          <h4>Chat name</h4>
           <form onSubmit={handleCreateChat}>
+            <h4>Chat name</h4>
             <input type="text" name="Chat name" required />
+            <h4>Chat description</h4>
+            <input type="text" name="Chat description" required />
             <Button buttonText={"Create"} buttonHeight={35} buttonWidth={100} />
           </form>
         </div>

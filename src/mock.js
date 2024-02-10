@@ -1,6 +1,7 @@
 export const chatMock = [
   {
     id: 1,
+    description: "Chat from work",
     title: "Work",
     messages: [
       {
@@ -43,6 +44,7 @@ export const chatMock = [
   },
   {
     id: 2,
+    description: "My friends",
     title: "Friends",
     messages: [
       {
