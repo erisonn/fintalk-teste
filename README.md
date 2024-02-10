@@ -15,6 +15,10 @@ Instala as dependências do projeto.
 
 Inicia o servidor de desenvolvimento.
 
+url: http://localhost:5173/
+
 ## `npm run build`, `npm run preview`
 
 Inicia o servidor de produção.
+
+url: http://localhost:4173
