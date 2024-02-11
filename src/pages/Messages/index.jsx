@@ -13,13 +13,15 @@ const Messages = () => {
   const listRef = useRef(null);
 
   useEffect(() => {
-    window.addEventListener("storage", () => {
+    const handleChatsDataChange = () => {
       setChatsData(getLoggedUser().chats);
-    });
+    };
+
+    window.addEventListener("storage", handleChatsDataChange);
     listRef.current?.lastElementChild?.scrollIntoView();
-    // return () => {
-    //   window.removeEventListener("chatUpdate");
-    // };
+    return () => {
+      window.removeEventListener("storage", handleChatsDataChange);
+    };
   }, [chats]);
 
   return (
