@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./index.scss";
 import Button from "../../Button";
 import { createLocalStorageChat } from "../../../helpers/createLocalStorageChat";
+import CreateEditChatPopOver from "../../CreateEditChatPopOver";
 
 const CreateChatButton = ({ setChatData }) => {
   const [shouldRenderPopOver, setShouldRenderPopOver] = useState(false);
@@ -23,15 +24,7 @@ const CreateChatButton = ({ setChatData }) => {
   return (
     <div className="CreateChatButton-wrapper">
       {shouldRenderPopOver && (
-        <div className="CreateChatButton-popOver">
-          <form onSubmit={handleCreateChat}>
-            <h4>Chat name</h4>
-            <input type="text" name="Chat name" required />
-            <h4>Chat description</h4>
-            <input type="text" name="Chat description" required />
-            <Button buttonText={"Create"} buttonHeight={35} buttonWidth={100} />
-          </form>
-        </div>
+        <CreateEditChatPopOver onSubmit={handleCreateChat} />
       )}
       <Button
         onClick={togglePopOver}
