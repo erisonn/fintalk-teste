@@ -5,12 +5,23 @@
   position: relative;
   max-width: 50%;
   height: 87vh;
-  h1, h4 {
-    white-space: nowrap;
-    max-width: 90%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-left: 20px;
+  .ChatContent-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+    h1,
+    h4 {
+      white-space: nowrap;
+      max-width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-left: 20px;
+    }
+    .CreateEditChatButton-popOver-edit {
+      right: 10%;
+      top: 10%;
+    }
   }
 
   .ChatContent-messages-wrapper {
