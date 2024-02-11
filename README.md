@@ -1,5 +1,5 @@
 # Fin-Chat - Fintalk frontend challenge
-
+Live preview: https://fin-chat.netlify.app/
 ## Requisitos para rodar o projeto
 
  - Git
