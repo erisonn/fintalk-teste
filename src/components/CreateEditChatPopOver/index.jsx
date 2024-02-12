@@ -22,7 +22,7 @@ const CreateEditChatPopOver = ({ onSubmit, isEdit = false, currentChat }) => {
           defaultValue={chatDescription}
         />
         <Button
-          buttonText={isEdit ? "Edit" : "Create"}
+          buttonText={isEdit ? "Edit chat" : "Create"}
           buttonHeight={35}
           buttonWidth={100}
         />
