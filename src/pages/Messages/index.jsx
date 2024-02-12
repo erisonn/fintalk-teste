@@ -12,6 +12,7 @@ const Messages = () => {
   const [chatsData, setChatsData] = useState(chats);
   const listRef = useRef(null);
 
+  // update chat data state when local storage is changed
   useEffect(() => {
     const handleChatsDataChange = () => {
       setChatsData(getLoggedUser().chats);
