@@ -80,9 +80,8 @@ describe("Should complete happy path", () => {
   it("Should send message correctly", () => {
     cy.visit("/messages");
     cy.contains("New chat cypress edited").click();
-    cy.get('input[name="new message"]')
-      .type("cypress test new message")
-      .type("{enter}");
+    cy.get('input[name="new message"]').type("cypress test new message");
+    cy.get('input[name="new message"]').type("{enter}");
     cy.get(".ChatContent-messages")
       .contains("cypress test new message")
       .should("be.visible");
