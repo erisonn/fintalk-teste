@@ -1,41 +1,54 @@
-import { useEffect, useState } from "react";
-import { createLocalStorageAccount } from "../../helpers/createLocalStorageAccount";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import Form from "../../components/Form";
+import { axiosClient } from "../../clientConfig";
+import { useMutation } from "@tanstack/react-query";
 
 const SignUp = () => {
-  const [isAccountCreateSuccessful, setIsAccountCreateSuccessful] =
-    useState(null);
-
-  const shouldRenderWarning = isAccountCreateSuccessful === false;
-
   const navigate = useNavigate();
 
+  const createUser = useMutation({
+    mutationKey: ["createUser"],
+    mutationFn: (user) =>
+      axiosClient.post("/register", user).then((res) => res.data),
+  });
+
+  const { success } = createUser?.data?.data ?? {};
+
+  const shouldRenderWarning = success === false;
+ 
   const handleSubmit = (event) => {
     const user = event.target[0].value;
     const password = event.target[1].value;
 
     event.preventDefault();
 
-    createLocalStorageAccount(user, password, setIsAccountCreateSuccessful);
+    createUser.mutate({
+      userData: {
+        user,
+        password,
+      },
+    });
   };
-  
+
   useEffect(() => {
     const timer = () => {
       setTimeout(() => {
         navigate("login");
       }, 2000);
     };
-    if (isAccountCreateSuccessful) {
+    if (success) {
       timer();
     }
     return () => {
       clearTimeout(timer);
     };
-  }, [isAccountCreateSuccessful, navigate]);
+  }, [success, navigate]);
 
-  if (isAccountCreateSuccessful) {
+  if (createUser.isPending) return <p>Loading...</p>;
+
+  if (success) {
     return (
       <div className="Signup-page">
         <h2>Account created sucessfully!</h2>
