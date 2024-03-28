@@ -14,7 +14,7 @@ const SignUp = () => {
       axiosClient.post("/register", user).then((res) => res.data),
   });
 
-  const { success } = createUser?.data?.data ?? {};
+  const { success } = createUser?.data ?? {};
 
   const shouldRenderWarning = success === false;
  

@@ -1,43 +1,42 @@
 import { useNavigate } from "react-router-dom";
-import { loginWithLocalStorage } from "../../helpers/loginWithLocalStorage";
-import { useEffect, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
 import Form from "../Form";
+import { axiosClient } from "../../clientConfig";
 
 const LoginForm = () => {
-  const [isLoginValid, setIsLoginValid] = useState(null);
   const navigate = useNavigate();
+
+  const logUser = useMutation({
+    mutationKey: ["logUser"],
+    mutationFn: (user) =>
+      axiosClient.post("/login", user).then((res) => res.data),
+    onSuccess: () => {
+      navigate("messages");
+    },
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const user = event.target[0].value;
     const password = event.target[1].value;
-    loginWithLocalStorage(user, password, setIsLoginValid);
+
+    logUser.mutate({
+      userData: {
+        user,
+        password,
+      },
+    });
   };
 
-  useEffect(() => {
-    const timer = () => {
-      setTimeout(() => {
-        navigate("/messages");
-      }, 2000);
-    };
-    if (isLoginValid) {
-      timer();
-    }
+  const { success, message } = logUser?.data ?? {};
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [isLoginValid, navigate]);
-
-  if (isLoginValid) {
-    return <h3>Logged in successfully!</h3>;
-  }
+  if (logUser.isPending) return <p>Loading...</p>;
 
   return (
     <Form
       handleSubmit={handleSubmit}
       buttonText={"Continue"}
-      warningText={isLoginValid === false ? "Wrong password" : ""}
+      warningText={success === false ? message : ""}
     />
   );
 };
